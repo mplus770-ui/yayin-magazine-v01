@@ -389,7 +389,7 @@ html[dir="rtl"] .page-body {
   justify-content: space-between;
   padding-bottom: 14px;
   border-bottom: 0.5px solid rgba(240,234,220,0.25);
-  margin-top: 15px;
+  margin-top: 5px;
   margin-bottom: 20px;
 }
 .cover-issue-tag {
@@ -1022,14 +1022,45 @@ body.fullscreen #stage {
   #flipper { display: none !important; }
 }
 
-/* ── MOBILE SINGLE PAGE ─────────────────────────────────────────────── */
+/* ── MOBILE — שורת ניווט כפולה (≤640px) ──────────────────────────────── */
+@media (max-width: 640px) {
+
+  /* Nav: two rows, ALL buttons visible */
+  #mag-nav {
+    height: auto;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 4px 6px;
+    gap: 3px;
+  }
+  #stage { top: 84px; }             /* extra room for 2-row nav */
+
+  .nav-brand { display: none; }     /* brand text hidden — not a button */
+
+  /* Row 1: page navigation — full width, centered */
+  .nav-controls {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  /* Row 2: zoom + fullscreen + print — all visible */
+  .nav-zoom    { order: 2; gap: 3px; }
+  .nav-actions { order: 2; gap: 3px; }
+
+  /* Compact sizing for all buttons */
+  .nav-btn       { font-size: 9px; padding: 3px 6px; letter-spacing: 0.2px; }
+  .nav-zoom-btn  { width: 20px; height: 20px; font-size: 12px; }
+  #zoom-val      { font-size: 9px; min-width: 28px; }
+  .nav-page-info { font-size: 9px; min-width: 58px; letter-spacing: 0.2px; }
+  #btn-cover     { font-size: 9px; padding: 4px 10px; bottom: 10px; }
+}
+
+/* ── MOBILE BOOK (≤480px) ────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  body { overflow-y: auto; height: auto; }
-  #stage { position: relative; top: 50px; height: auto; padding: 20px 10px 60px; }
-  #book { width: 100%; height: auto; box-shadow: none; transform: none !important; }
-  .spread { position: static; display: block; }
-  .spread:not(.active) { display: none; }
-  .page { width: 100%; height: auto; min-height: 120vw; }
-  .page.page-left { border-right: none; border-bottom: 1px solid var(--rule); }
+  #stage        { padding-top: 14px; overflow-x: hidden; overflow-y: hidden; }
+  #book         { box-shadow: none; }
   #book::before { display: none; }
+  .spread:not(.active) { display: none; }
 }

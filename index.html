@@ -31,11 +31,11 @@
   </div>
 
   <div class="nav-controls">
-    <button class="nav-btn" onclick="skipPages(-10)" title="אחורה 10 עמודים">&#8649; &minus;10</button>
+    <button class="nav-btn" id="btn-skip-bwd" onclick="skipPages(-10)" title="אחורה 10 עמודים">&#8649; &minus;10</button>
     <button class="nav-btn" id="btn-prev" disabled>&#8594; הקודם</button>
     <span  class="nav-page-info" id="pg-info">שער · עמוד 1</span>
     <button class="nav-btn" id="btn-next">הבא &#8592;</button>
-    <button class="nav-btn" onclick="skipPages(10)"  title="קדימה 10 עמודים">+10 &#8648;</button>
+    <button class="nav-btn" id="btn-skip-fwd" onclick="skipPages(10)"  title="קדימה 10 עמודים">+10 &#8648;</button>
   </div>
 
   <div class="nav-zoom">
@@ -1183,14 +1183,22 @@
     if (e.key === 'Escape')     document.body.classList.remove('fullscreen');
   });
 
-  /* touch swipe */
-  var tx = 0;
+  /* touch swipe — threshold 80px, horizontal-only, 650ms debounce */
+  var tx = 0, ty = 0, tLast = 0;
   el('stage').addEventListener('touchstart', function (e) {
     tx = e.touches[0].clientX;
+    ty = e.touches[0].clientY;
   }, { passive: true });
   el('stage').addEventListener('touchend', function (e) {
+    var now = Date.now();
+    if (now - tLast < 650) return;            /* debounce double-swipe */
     var dx = e.changedTouches[0].clientX - tx;
-    if (Math.abs(dx) > 55) flip(dx < 0 ? 1 : -1);
+    var dy = e.changedTouches[0].clientY - ty;
+    var isHorizontal = Math.abs(dx) > Math.abs(dy) * 1.6;
+    if (Math.abs(dx) > 80 && isHorizontal) {  /* horizontal swipe only */
+      tLast = now;
+      flip(dx < 0 ? 1 : -1);
+    }
   }, { passive: true });
 
   /* click zones (left 22 % = prev, right 22 % = next) */
@@ -1231,11 +1239,13 @@
 
   function responsiveBase() {
     var w = window.innerWidth;
-    if (w <= 560)  return 0.40;
-    if (w <= 750)  return 0.55;
-    if (w <= 950)  return 0.72;
-    if (w <= 1120) return 0.86;
-    return 1.0;
+    if (w <= 380)  return 0.48;   /* small phones  */
+    if (w <= 480)  return 0.55;   /* phones        */
+    if (w <= 560)  return 0.62;   /* large phones  */
+    if (w <= 750)  return 0.55;   /* tablets       */
+    if (w <= 950)  return 0.72;   /* small laptops */
+    if (w <= 1120) return 0.86;   /* laptops       */
+    return 1.0;                   /* desktop       */
   }
 
   function applyZoom() {
