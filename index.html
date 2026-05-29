@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<!-- ═══════════════════════════════════════════════
+     YAYIN · מגזין יין ישראלי · גיליון 01 · 2026
+═══════════════════════════════════════════════ -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAYIN · מגזין יין ישראלי · גיליון 01 · 2026</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION BAR
+═══════════════════════════════════════════════ -->
+<nav id="mag-nav">
+
+  <div class="nav-brand">
+    YAYIN <span>·</span> יַיִן
+  </div>
+
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="skipPages(-10)" title="אחורה 10 עמודים">&#8649; &minus;10</button>
+    <button class="nav-btn" id="btn-prev" disabled>&#8594; הקודם</button>
+    <span  class="nav-page-info" id="pg-info">שער · עמוד 1</span>
+    <button class="nav-btn" id="btn-next">הבא &#8592;</button>
+    <button class="nav-btn" onclick="skipPages(10)"  title="קדימה 10 עמודים">+10 &#8648;</button>
+  </div>
+
+  <div class="nav-zoom">
+    <button class="nav-zoom-btn" onclick="zoomOut()" title="הקטן">&#8722;</button>
+    <span id="zoom-val" onclick="zoomReset()" title="אפס זום">100%</span>
+    <button class="nav-zoom-btn" onclick="zoomIn()"  title="הגדל">&#43;</button>
+  </div>
+
+  <div class="nav-actions">
+    <button class="nav-btn accent" onclick="toggleFS()">&#9633; מסך מלא</button>
+    <button class="nav-btn accent" onclick="printMag()">&#9113; הדפסה</button>
+  </div>
+
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     STAGE  (full-viewport area below nav)
+═══════════════════════════════════════════════ -->
+<div id="stage">
+
+
+  <!-- ═══════════════════════════════════════════
+       BOOK  (two-page spread container)
+  ═══════════════════════════════════════════ -->
+  <div id="book">
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 0
+         RIGHT: P1 — עמוד שער (Cover)
+         LEFT:  empty (spine / back of cover)
+
+         Note: In RTL CSS Grid the first child
+         renders in the RIGHT column.
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread active" id="sp0">
+
+
+      <!-- ─────────────────────────────────────
+           P1 · COVER  (RIGHT side)
+      ───────────────────────────────────── -->
+      <div class="page cover-page" id="p1">
+
+        <!-- Background vineyard photograph -->
+        <div class="cover-bg-img"
+             style="background-image: url('img/רקע תמונה של הכרם.jpeg');">
+        </div>
+
+        <!-- Dark gradient veil -->
+        <div class="cover-veil"></div>
+
+        <!-- All cover text content -->
+        <div class="cover-content">
+
+          <!-- ① Top bar: issue & price -->
+          <div class="cover-top-bar">
+            <span class="cover-issue-tag">גיליון 01 &nbsp;·&nbsp; אביב–קיץ 2026</span>
+            <span class="cover-price">₪ 68</span>
+          </div>
+
+          <!-- ② Masthead -->
+          <div class="cover-masthead">
+            <div class="cover-brand-line">SADAFRONIA &nbsp;·&nbsp; יסודות היין</div>
+            <div class="cover-title">YAYIN</div>
+            <div class="cover-title-he">מגזין יַיִן ישראלי</div>
+          </div>
+
+          <div class="cover-rule"></div>
+
+          <!-- ③ Flexible spacer pushes hero down -->
+          <div class="cover-spacer"></div>
+
+          <!-- ④ Hero article teaser -->
+          <div class="cover-hero-box">
+            <div class="cover-hero-kicker">הכתבה הראשית</div>
+            <div class="cover-hero-title">בציר 2024<br>שנת התחייה</div>
+            <div class="cover-hero-sub">
+              מה קרה בכרמים הישראלים השנה,<br>
+              ולמה ההיסטוריה של הגפן לא שכחה את הגשם
+            </div>
+          </div>
+
+          <!-- ⑤ Secondary teasers -->
+          <div class="cover-teasers">
+            <div class="cover-teaser">יינות הגולן: פרשת ארץ וטרואר</div>
+            <div class="cover-teaser">כיצד מקימים יקב קטן מאפס</div>
+            <div class="cover-teaser">מנדוזה: בין פמפה לשמיים</div>
+            <div class="cover-teaser">24 ביקורות יין מהבציר האחרון</div>
+          </div>
+
+          <!-- ⑥ Footer contact line -->
+          <div class="cover-bottom-bar">
+            <div class="cover-contact">
+              sadafronia.co.il &nbsp;·&nbsp; 077-729-7071 &nbsp;·&nbsp; sadafronia@gmail.com
+            </div>
+          </div>
+
+        </div><!-- /cover-content -->
+
+      </div><!-- /p1 -->
+
+
+      <!-- ─────────────────────────────────────
+           LEFT side of spread 0 — intentionally
+           empty (represents the closed-book spine)
+      ───────────────────────────────────── -->
+      <div class="page empty"></div>
+
+
+    </div><!-- /sp0 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 1
+         RIGHT: P3 — תוכן עניינים א׳
+         LEFT:  P5 — תוכן עניינים ב׳
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp1">
+
+      <!-- P3 · TOC PART 1 (RIGHT — עמוד 2) -->
+      <div class="page" id="p3" style="background:var(--cream-light)">
+        <div class="page-head">
+          <span class="page-folio">02</span>
+          <span class="page-section">תוכן עניינים</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:16px">
+
+          <div class="toc-title">תוכן<br>הגיליון</div>
+          <div class="toc-subtitle">גיליון 01 &nbsp;·&nbsp; אביב–קיץ 2026</div>
+          <div class="rule-bold"></div>
+          <div class="rule-thin-bottom"></div>
+
+          <div class="toc-section-label">פתח דבר</div>
+          <div class="toc-item">
+            <span class="toc-num">06</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">מכתב מן העורך</div>
+              <div class="toc-item-sub">אפרים זוהר</div>
+            </div>
+          </div>
+
+          <div class="toc-section-label">כתבות ראשיות</div>
+          <div class="toc-item">
+            <span class="toc-num">08</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">בציר 2024: שנת התחייה</div>
+              <div class="toc-item-sub">עומק על הבציר הישראלי</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">14</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">יינות הגולן: פרשת ארץ</div>
+              <div class="toc-item-sub">טרואר, גיאולוגיה ויקבים</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">19</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">הקמת יקב קטן</div>
+              <div class="toc-item-sub">מן החלום אל הבקבוק</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">23</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">מנדוזה: שירת הפמפה</div>
+              <div class="toc-item-sub">עולם היין הארגנטינאי</div>
+            </div>
+          </div>
+
+          <div class="toc-section-label">יינות</div>
+          <div class="toc-item">
+            <span class="toc-num">27</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">ביקורות יין</div>
+              <div class="toc-item-sub">24 יינות מהבציר האחרון</div>
+            </div>
+          </div>
+
+          <div class="rule-h" style="margin-top:auto"></div>
+          <div class="small-caps" style="margin-top:10px;text-align:center">
+            המשך בעמוד הבא &#8592;
+          </div>
+        </div>
+      </div><!-- /p3 -->
+
+
+      <!-- P5 · TOC PART 2 (LEFT — עמוד 3) -->
+      <div class="page" id="p5" style="background:var(--cream-light)">
+        <div class="page-head">
+          <span class="page-folio">03</span>
+          <span class="page-section">תוכן עניינים</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:14px">
+
+          <div class="toc-section-label">טכניקה וייצור</div>
+          <div class="toc-item">
+            <span class="toc-num">33</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">היגיינה במרתף</div>
+              <div class="toc-item-sub">המדע שמאחורי הנקיון</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">37</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">שינויי האקלים והכרם</div>
+              <div class="toc-item-sub">כיצד מסתגלים מגדלי הגפן</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">40</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">סינון יין</div>
+              <div class="toc-item-sub">בין שקיפות לטבעיות</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">42</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">חנקן בייננות</div>
+              <div class="toc-item-sub">תפקיד הגז הנסתר</div>
+            </div>
+          </div>
+
+          <div class="toc-section-label">אורחות חיים</div>
+          <div class="toc-item">
+            <span class="toc-num">45</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">מסעדות ויין בישראל</div>
+              <div class="toc-item-sub">שלושה שולחנות, שלוש חוויות</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">48</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">יין ושבת</div>
+              <div class="toc-item-sub">מסורת, עונג ובחירה</div>
+            </div>
+          </div>
+
+          <div class="toc-section-label">חדשות ואירועים</div>
+          <div class="toc-item">
+            <span class="toc-num">50</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">לוח אירועים</div>
+              <div class="toc-item-sub">טעימות, סדנאות וביקורי יקב</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">52</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">יינות חדשים</div>
+              <div class="toc-item-sub">שחרורים ראויים לתשומת לב</div>
+            </div>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">56</span>
+            <div class="toc-item-info">
+              <div class="toc-item-title">מדור דעה</div>
+              <div class="toc-item-sub">יין טבעי מול יין מסורתי</div>
+            </div>
+          </div>
+
+          <div class="rule-h" style="margin-top:auto"></div>
+          <div class="small-caps" style="margin-top:10px; text-align:center">
+            YAYIN · גיליון 01 · 2026
+          </div>
+        </div>
+      </div><!-- /p5 -->
+
+    </div><!-- /sp1 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 2
+         RIGHT: P4 — פרטי מערכת
+         LEFT:  P2 — מודעת SADAFRONIA קורס
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp2">
+
+      <!-- P4 · MASTHEAD + CREDITS (RIGHT — עמוד 5) -->
+      <div class="page" id="p4" style="background:var(--cream-light)">
+        <div class="page-head">
+          <span class="page-folio">04</span>
+          <span class="page-section">תוכן עניינים</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:16px">
+
+          <!-- masthead block -->
+          <div style="text-align:center; margin-bottom:20px">
+            <div style="font-family:var(--f-display); font-weight:900; font-size:22px;
+                        letter-spacing:7px; color:var(--ink)">YAYIN</div>
+            <div style="font-family:var(--f-display); font-size:8.5px; letter-spacing:4px;
+                        color:var(--gray); text-transform:uppercase; margin-top:4px">
+              מגזין יין ישראלי
+            </div>
+          </div>
+
+          <div class="rule-bold"></div>
+          <div class="rule-thin-bottom"></div>
+
+          <!-- staff credits — two tight columns -->
+          <div class="two-col" style="gap:20px; flex:unset">
+            <div class="col">
+              <div class="credits-label">עורך ראשי</div>
+              <div class="credits-name">אפרים זוהר</div>
+              <div class="credits-divider"></div>
+              <div class="credits-label">עיצוב גרפי</div>
+              <div class="credits-name">מדור עיצוב · YAYIN</div>
+              <div class="credits-divider"></div>
+              <div class="credits-label">צילום</div>
+              <div class="credits-name">ארכיון SADAFRONIA<br>ותצלומי שטח</div>
+              <div class="credits-divider"></div>
+              <div class="credits-label">עריכה לשונית</div>
+              <div class="credits-name">צוות המגזין</div>
+            </div>
+            <div class="col">
+              <div class="credits-label">מו"ל</div>
+              <div class="credits-name">SADAFRONIA בע"מ</div>
+              <div class="credits-divider"></div>
+              <div class="credits-label">כתובת המערכת</div>
+              <div class="credits-name" style="font-size:10.5px; line-height:1.8">
+                sadafronia@gmail.com<br>077-729-7071<br>sadafronia.co.il
+              </div>
+              <div class="credits-divider"></div>
+              <div class="credits-label">מנוי שנתי</div>
+              <div class="credits-name">4 גיליונות · ₪ 220</div>
+              <div class="credits-divider"></div>
+              <div class="credits-label">זכויות יוצרים</div>
+              <div class="credits-name" style="font-size:10px; line-height:1.7">
+                © 2026 SADAFRONIA בע"מ<br>כל הזכויות שמורות
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-h" style="margin-top:auto"></div>
+          <div style="text-align:center; margin-top:14px">
+            <img src="img/לוגו סדפרוניה.png" alt="SADAFRONIA"
+                 style="max-height:46px; max-width:100%; opacity:0.82">
+          </div>
+          <div style="font-family:var(--f-serif); font-style:italic; font-size:10.5px;
+                      color:var(--gray-light); text-align:center; margin-top:10px; line-height:1.7">
+            המגזין אינו ממליץ על שתיית אלכוהול לקטינים.<br>שתו בחוכמה ובמידה.
+          </div>
+        </div>
+      </div><!-- /p4 -->
+
+
+      <!-- P2 · SADAFRONIA COURSE AD (LEFT — עמוד 4) -->
+      <div class="page" id="p2"
+           style="position:relative; overflow:hidden;
+                  background:#0A0806; border:none;
+                  display:flex; flex-direction:column;
+                  align-items:center; padding:26px 30px 32px">
+
+        <!-- Inset border frame — stays against the page edge -->
+        <div style="position:absolute; inset:11px;
+                    border:0.5px solid rgba(215,198,168,0.26);
+                    pointer-events:none; z-index:3">
+        </div>
+
+        <!-- "Publicité" — centered top -->
+        <div style="font-family:var(--f-display); font-size:6.5px;
+                    letter-spacing:5px; color:rgba(200,182,148,0.32);
+                    text-transform:uppercase; margin-bottom:18px; z-index:2">
+          פרסומת
+        </div>
+
+        <!-- Photo box — contained, 28px margin from page sides via parent padding -->
+        <div style="width:100%; height:346px; overflow:hidden;
+                    position:relative; flex-shrink:0; z-index:1">
+
+          <img src="img/תמונה לעמוד מגזין אירו.png"
+               alt="סצנת לייף-סטייל"
+               style="width:100%; height:100%; object-fit:cover;
+                      object-position:center 40%;
+                      filter:brightness(0.75) saturate(0.85) contrast(1.04)">
+
+          <!-- very subtle bottom fade — 25% opacity max -->
+          <div style="position:absolute; bottom:0; left:0; right:0; height:45%;
+                      background:linear-gradient(to top,
+                        rgba(10,8,6,0.25) 0%,
+                        rgba(10,8,6,0.08) 60%,
+                        transparent 100%)">
+          </div>
+
+        </div><!-- /photo box -->
+
+        <!-- text stack — below the photo -->
+        <div style="width:100%; text-align:center; margin-top:auto; padding-top:20px">
+
+          <!-- rule -->
+          <div style="width:32px; height:0.5px;
+                      background:rgba(208,190,158,0.42); margin:0 auto 20px">
+          </div>
+
+          <!-- main quote -->
+          <div style="font-family:'Cormorant Garamond', var(--f-serif);
+                      font-style:italic; font-size:15.5px; line-height:1.6;
+                      color:rgba(236,226,208,0.9); margin-bottom:18px">
+            הסודות המקצועיים של ייצור יין —<br>מהכרם ועד הבקבוק
+          </div>
+
+          <!-- rule -->
+          <div style="width:22px; height:0.5px;
+                      background:rgba(190,170,135,0.35); margin:0 auto 15px">
+          </div>
+
+          <!-- brand name -->
+          <div style="font-family:var(--f-display); font-weight:700;
+                      font-size:17px; letter-spacing:6px;
+                      color:rgba(240,230,212,0.94); margin-bottom:8px">
+            SADAFRONIA · יסודות היין
+          </div>
+
+          <!-- tagline -->
+          <div style="font-family:var(--f-display); font-weight:300;
+                      font-size:8.5px; letter-spacing:3.5px;
+                      color:rgba(195,178,145,0.62); text-transform:uppercase;
+                      margin-bottom:16px">
+            הקורס הדיגיטלי המקיף ביותר בישראל · הדרך שלך להבין יין באמת
+          </div>
+
+          <!-- rule -->
+          <div style="width:22px; height:0.5px;
+                      background:rgba(182,162,128,0.26); margin:0 auto 12px">
+          </div>
+
+          <!-- contact -->
+          <div style="font-family:var(--f-display); font-size:7.5px;
+                      letter-spacing:2.5px; color:rgba(170,152,120,0.42)">
+            מאסטרקלאס מקצועי · 12 פרקים · תהליך מלא · ידע אמיתי מהשטח<br>
+            <span style="font-weight:700; color:rgba(210,190,155,0.7)">👈🏻 הרשמה לקורס</span>
+          </div>
+
+        </div><!-- /text stack -->
+
+      </div><!-- /p2 -->
+
+    </div><!-- /sp2 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 3
+         RIGHT: P6 — מכתב עורך — תמונה + כותרת
+         LEFT:  P7 — מכתב עורך — טקסט מלא
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp3">
+
+      <!-- P6 · EDITOR'S LETTER — opening / photo (RIGHT — עמוד 6) -->
+      <div class="page" id="p6">
+        <div class="page-head">
+          <span class="page-folio">06</span>
+          <span class="page-section">מכתב העורך</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:16px">
+
+          <div class="article-kicker">מן המערכת</div>
+          <h1 class="article-title" style="font-size:34px; margin-bottom:14px">
+            מכתב<br>מן העורך
+          </h1>
+
+          <!-- editor photo placeholder -->
+          <div class="img-ph real" style="height:270px; margin-bottom:14px">
+            <img src="img/קורס יסודות היין.jpg" alt="אפרים זוהר, עורך ראשי"
+                 style="width:100%; height:100%; object-fit:cover; display:block">
+          </div>
+          <div class="caption">אפרים זוהר, עורך ראשי YAYIN — בסדנת יין, 2025</div>
+
+          <div style="font-family:var(--f-serif); font-style:italic; font-size:14px;
+                      line-height:1.65; color:var(--gray-dark); margin-top:12px;
+                      border-right:2px solid var(--wine); padding-right:12px">
+            "יין הוא השפה שבה האדמה<br>מדברת אל האדם."
+          </div>
+
+        </div>
+      </div><!-- /p6 -->
+
+
+      <!-- P7 · EDITOR'S LETTER — full text (LEFT — עמוד 7) -->
+      <div class="page" id="p7">
+        <div class="page-head">
+          <span class="page-folio">07</span>
+          <span class="page-section">מכתב העורך</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:16px">
+          <div class="editor-letter">
+            <p>כשהתחלנו לבנות את המגזין הזה, שאלנו את עצמנו שאלה אחת פשוטה: האם ישראל מוכנה למגזין יין ברמה עולמית? אחרי חמישה חודשים של כתיבה, עריכה, טעימות ונסיעות לכרמים — התשובה ברורה: כן. מאוד.</p>
+            <p>יין ישראלי כבר אינו ה"סיפור המפתיע" שפעם היה. הוא עובדה. שלוש מאות יקבים פעילים, בציר של שמונים אלף טון ענבים בשנה, ויינות שמצטטים בפריז ובניו יורק. מה שחסר היה מגזין שמתייחס לכל זה ברצינות — מגזין שכתוב כמו שמדברים על יין בחדרי הדיון של בורדו ובורגון.</p>
+            <p>YAYIN נולד מתוך הצורך הזה. כל כתבה בגיליון הזה נכתבה בידי אנשים שחיים ונושמים יין — לא כתחביב, אלא כשפה. אנחנו מאמינים שדרך הגביע ניתן לדבר על אדמה, אקלים, תרבות ומסורת.</p>
+            <p>הגיליון הפותח שלנו מביא ניתוח מעמיק של בציר 2024, פרופיל של אזור הגולן, ומדריך להקמת יקב קטן — כי אנחנו מאמינים שיין מתחיל בחלום.</p>
+            <div class="editor-sig">
+              אפרים זוהר
+              <span style="display:block; font-style:normal; font-family:var(--f-display);
+                           font-size:9px; letter-spacing:2px; color:var(--gray); margin-top:4px">
+                עורך ראשי · YAYIN
+              </span>
+            </div>
+          </div>
+          <div class="rule-h" style="margin-top:auto"></div>
+          <div class="small-caps" style="margin-top:10px">
+            בשיתוף SADAFRONIA · יסודות היין
+          </div>
+        </div>
+      </div><!-- /p7 -->
+
+    </div><!-- /sp3 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 4
+         RIGHT: P8  — פרסומת עמוד מלא (יקב)
+         LEFT:  P9  — בציר 2024: שנת התחייה (פתיחה)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp4">
+
+      <!-- P8 · SPLIT AD PAGE (RIGHT — עמוד 8)
+           TOP 50%  — דיסטי · אולם אירועים יוקרתי
+           BOTTOM 50% — מסעדת דארנא ירושלים
+           NO darkening — images shown at full brightness -->
+      <div class="page" id="p8"
+           style="overflow:hidden; background:#0D0B09; border:none;
+                  display:flex; flex-direction:column">
+
+        <!-- ══ TOP HALF — דיסטי ══ -->
+        <div style="flex:0 0 50%; display:flex; flex-direction:column; overflow:hidden">
+
+          <!-- תמונה — ללא חישוך, ללא פילטר -->
+          <div style="flex:1; overflow:hidden; min-height:0">
+            <img src="img/דיסטי מרכז הקונגרסים של ישראל.webp" alt="דיסטי — אולם אירועים"
+                 style="width:100%; height:100%; object-fit:cover;
+                        object-position:center 30%; display:block">
+          </div>
+
+          <!-- פאנל טקסט — מתחת לתמונה, לא מעליה -->
+          <div style="flex:0 0 auto; background:#0D0B09;
+                      padding:9px 20px 10px; text-align:center;
+                      border-top:0.5px solid rgba(210,192,155,0.18)">
+
+            <div style="font-family:var(--f-display); font-weight:700;
+                        font-size:13px; letter-spacing:6px;
+                        color:#EDE0C8; margin-bottom:3px">
+              DISTY
+            </div>
+
+            <div style="font-family:var(--f-display); font-size:6.5px;
+                        letter-spacing:3px; color:rgba(220,204,172,0.72);
+                        margin-bottom:5px">
+              אולם אירועים יוקרתי
+            </div>
+
+            <div style="font-family:'Cormorant Garamond', var(--f-serif);
+                        font-style:italic; font-size:10.5px; line-height:1.5;
+                        color:rgba(225,208,178,0.78); margin-bottom:5px">
+              "כשהאירוע הופך לזיכרון שלא נשכח"
+            </div>
+
+            <div style="font-family:var(--f-display); font-size:6px;
+                        letter-spacing:1.8px; color:rgba(175,155,118,0.5)">
+              חתונות · גאלות · ארועי חברה · disty.co.il
+            </div>
+
+          </div>
+        </div><!-- /top half -->
+
+        <!-- קו הפרדה -->
+        <div style="flex:0 0 1px; background:rgba(200,178,140,0.15)"></div>
+
+        <!-- ══ BOTTOM HALF — מסעדת דארנא ══ -->
+        <div style="flex:0 0 50%; display:flex; flex-direction:column; overflow:hidden">
+
+          <!-- תמונה — ללא חישוך, ללא פילטר -->
+          <div style="flex:1; overflow:hidden; min-height:0">
+            <img src="img/דארנא מסעדה מרוקאית אותטנית.jpg" alt="מסעדת דארנא ירושלים"
+                 style="width:100%; height:100%; object-fit:cover;
+                        object-position:center 40%; display:block">
+          </div>
+
+          <!-- פאנל טקסט — מתחת לתמונה, לא מעליה -->
+          <div style="flex:0 0 auto; background:#0D0B09;
+                      padding:9px 20px 10px; text-align:center;
+                      border-top:0.5px solid rgba(180,140,80,0.2)">
+
+            <div style="font-family:var(--f-display); font-weight:700;
+                        font-size:13px; letter-spacing:5px;
+                        color:#F0E0C0; margin-bottom:3px">
+              דארנא
+            </div>
+
+            <div style="font-family:var(--f-display); font-size:6.5px;
+                        letter-spacing:3px; color:rgba(225,200,155,0.72);
+                        margin-bottom:5px">
+              מסעדה מרוקאית יוקרתית · ירושלים
+            </div>
+
+            <div style="font-family:'Cormorant Garamond', var(--f-serif);
+                        font-style:italic; font-size:10.5px; line-height:1.5;
+                        color:rgba(228,205,168,0.78); margin-bottom:5px">
+              "טעמים מסורתיים, אווירה מרוקאית אותנטית"
+            </div>
+
+            <div style="font-family:var(--f-display); font-size:6px;
+                        letter-spacing:1.8px; color:rgba(170,140,90,0.5)">
+              רחוב הרב קוק 3, ירושלים · 02-624-5406
+            </div>
+
+          </div>
+        </div><!-- /bottom half -->
+
+      </div><!-- /p8 -->
+
+
+      <!-- P9 · ARTICLE OPENING (LEFT — עמוד 9) -->
+      <div class="page" id="p9">
+        <div class="page-head">
+          <span class="page-folio">09</span>
+          <span class="page-section">כתבות ראשיות</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:12px">
+
+          <!-- תמונת גיבור -->
+          <div class="img-ph real" style="height:228px; margin-bottom:14px">
+            <img src="img/כרמי גולן והגליל.jpg" alt="בציר 2024"
+                 style="width:100%; height:100%; object-fit:cover;
+                        object-position:center 40%; display:block">
+          </div>
+
+          <div class="article-kicker">כתבת שער · בציר 2024</div>
+          <h1 class="article-title" style="font-size:36px; line-height:1.06;
+                                           margin-bottom:10px">
+            שנת<br>התחייה
+          </h1>
+          <div class="article-deck">
+            אחרי שנים של בצורת ואי-ודאות, הכרמים הישראלים
+            מדברים ב-2024 בקול שלא נשמע מזה עשור
+          </div>
+          <div class="article-byline">מאת אפרים זוהר</div>
+
+          <div class="rule-h"></div>
+
+          <div class="article-body">
+            <p><span class="drop-cap">ב</span>ציר 2024 ייזכר בתולדות הכרם הישראלי כנקודת מפנה. לאחר שלוש שנים של מיעוט גשמים וטמפרטורות קיצוניות — חזרו הכרמים לחיים. מגדלים שכמעט ויתרו מצאו את עצמם מול ענבים שמחים, בשלים, עשירים בסוכרים וחמצים מאוזנים.</p>
+          </div>
+
+        </div>
+      </div><!-- /p9 -->
+
+    </div><!-- /sp4 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 5
+         RIGHT: P10 — שנת התחייה (המשך א׳) — תמונה + גוף
+         LEFT:  P11 — שנת התחייה (המשך ב׳) — גוף + ציטוט + סיום
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp5">
+
+      <!-- P10 · ARTICLE CONT. (RIGHT — עמוד 10) -->
+      <div class="page" id="p10">
+        <div class="page-head">
+          <span class="page-folio">10</span>
+          <span class="page-section">כתבות ראשיות</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:10px">
+
+          <!-- תמונה: חביות עץ אלון — תאמת לתוכן הכתבה -->
+          <div class="img-ph real" style="height:196px; margin-bottom:13px">
+            <img src="img/חביות עץ אלון.jpg" alt="חביות עץ אלון ביקב ישראלי"
+                 style="width:100%; height:100%; object-fit:cover;
+                        object-position:center 45%; display:block">
+          </div>
+          <div class="caption" style="margin-top:-8px; margin-bottom:12px">
+            חביות אלון חדשות ביקב בוטיק בגליל העליון — בציר 2024 הגיע לרמה שלא נראתה מזה עשור
+          </div>
+
+          <div class="article-body">
+            <p>השפעת הגשמים לא באה לבד. חורף 2023–2024 הביא גשמים שפעים — 40% מעל הממוצע הרב-שנתי בצפון הארץ, ו-25% בגבעות יהודה. מי התהום חזרו לרמות שלא נראו מאז 2014. יוגב אורן, מגדל ענבים ותיק ברמות הגולן, מספר: "בפברואר ראיתי את הסימנים. הקרקע נשמה אחרת. ידעתי שזה הולך להיות בציר מיוחד."</p>
+
+            <!-- pull quote -->
+            <blockquote class="pull-quote">
+              <q>הכרמים שתו לשבוע. הענבים שמחו.
+               והיין מספר את הסיפור הזה.</q>
+              <cite>יוגב אורן, כורם — רמות הגולן</cite>
+            </blockquote>
+
+            <p>ייצור היין הישראלי הגיע ב-2024 לנפח של כ-45 מיליון בקבוקים — עלייה של 12% לעומת 2023. אך מעבר למספרים, מה שבלט היה האיכות: קברנה סוביניון מהגולן, מרלו מהגליל העליון, ושרז מגבעות יהודה — כולם הגיעו לרמות בשלות שלא נראו בשנים האחרונות.</p>
+          </div>
+
+        </div>
+      </div><!-- /p10 -->
+
+
+      <!-- P11 · ARTICLE CONT. (LEFT — עמוד 11) -->
+      <div class="page" id="p11">
+        <div class="page-head">
+          <span class="page-folio">11</span>
+          <span class="page-section">כתבות ראשיות</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:10px">
+
+          <div class="article-body">
+            <p>מנהלי היקבים הגדולים והקטנים כאחד מדברים על תחושה של "חזרה הביתה". ענת כהן, יינאית בוטיק מהגליל, מגדירה זאת בפשטות: "שנים עבדנו קשה מדי, ניסינו לפצות על מה שהטבע לא נתן. ב-2024 הטבע החזיר לנו את מה שלקח — הפירות בשלו לאיטם, הצבעים עמוקים, החמצה טבעית ונגישה."</p>
+
+            <p>גם בגזרה הטכנולוגית חלו שינויים. יקבים רבים בחרו השנה להפחית מיצוי מכאני ולתת לטבע לעשות את עבודתו: פחות חיטוי גופרתי, פחות כניסת חמצן, יותר עבודה ידנית בכרם. התוצאה ניכרת בכוס — יינות עם מרקם עדין יותר, פירות טריים ומלאים, ואורך בחיך המצדיק המתנה של שנים.</p>
+
+            <!-- pull quote -->
+            <blockquote class="pull-quote">
+              <q>ב-2024 הטבע החזיר לנו את מה שלקח.
+               זה בציר של כפרה.</q>
+              <cite>ענת כהן, יינאית — גליל עליון</cite>
+            </blockquote>
+
+            <p>הכרמים הגבוהים — מעל 700 מטר — הם שנשאו את הדגל. הגובה שמר על טמפרטורות לילה נמוכות גם בספטמבר, ואפשר לענבים לשמור על חמציות טבעית ארומטית. הסוביניון בלאן מרמות הגולן, ומקצת הקברנה פראן מהגבעות — הם כבר עתה נחשבים לבין הטובים שיוצרו כאן.</p>
+
+            <p>בציר 2024 אינו רק נתון — הוא הצהרה. הוא מוכיח שיין ישראלי, כשהטבע נדיב, יכול לעמוד בגאון לצד יינות העולם הגדולים. הוא בציר של תחייה — ושל תקווה.</p>
+
+            <div class="rule-h" style="margin-top:16px; margin-bottom:10px"></div>
+            <div style="text-align:center; font-family:'Cormorant Garamond', var(--f-serif);
+                        font-style:italic; font-size:11px; letter-spacing:1.5px;
+                        color:var(--ink-light)">
+              המשך בעמוד 12 ›
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /p11 -->
+
+    </div><!-- /sp5 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 6
+         RIGHT: P12 — שנת התחייה (סיום + יינות לצפות להם)
+         LEFT:  P13 — פרסומת יוקרה עמוד מלא · אריא אולם אירועים
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp6">
+
+      <!-- P12 · ARTICLE END (RIGHT — עמוד 12) -->
+      <div class="page" id="p12">
+        <div class="page-head">
+          <span class="page-folio">12</span>
+          <span class="page-section">כתבות ראשיות</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:10px">
+
+          <div class="article-body">
+            <p>אם בציר 2023 היה בציר של הישרדות, הרי ש-2024 הוא בציר של גאווה. הנוכחות הישראלית בתחרויות הבינלאומיות השנה חזקה מתמיד — עשרים ואחת מדליות זהב בתחרות בריסל, שלוש כוכבות של מדריך דקנטר ויין-ספקטייטור לשניים מהגולן. העולם מקשיב.</p>
+
+            <p>אך מעבר לפרסים, השינוי האמיתי מורגש בשיח הפנימי. יינאים ישראלים מפסיקים לחקות — ומתחילים לחדש. זנים מקומיים, עיבוד אדמה מינימלי, יינות ללא תוספת שמרים — הכל מתכנס לזהות ישראלית ברורה יותר מאי פעם.</p>
+
+            <!-- תיבת המלצות -->
+            <div style="border:0.5px solid var(--rule); padding:12px 14px 10px;
+                        margin:16px 0; background:rgba(94,18,32,0.04)">
+              <div style="font-family:var(--f-display); font-size:8px;
+                          letter-spacing:3px; text-transform:uppercase;
+                          color:var(--wine); margin-bottom:10px; text-align:center">
+                יינות לצפות להם · בציר 2024
+              </div>
+              <div style="font-family:var(--f-body); font-size:9.5px;
+                          line-height:1.65; color:var(--ink)">
+                <div style="margin-bottom:6px">
+                  <strong style="font-family:var(--f-display)">קברנה סוביניון — יקב הגולן</strong><br>
+                  עמוק, בשרני, עם טאנינים עגולים. בשלות מלאה מבלי לאבד את הצלילות.
+                </div>
+                <div style="border-top:0.5px solid var(--rule); padding-top:6px; margin-bottom:6px">
+                  <strong style="font-family:var(--f-display)">סוביניון בלאן — כרמי ירושלים</strong><br>
+                  חמצה עליזה, ארומה של גרפרוט ואשכולית, גמר ארוך ומינרלי.
+                </div>
+                <div style="border-top:0.5px solid var(--rule); padding-top:6px">
+                  <strong style="font-family:var(--f-display)">שרז — יקב דלתון, גליל עליון</strong><br>
+                  פירות כהים, פלפל שחור, ורמז עדין של עשן — בציר בוגר ועצמאי.
+                </div>
+              </div>
+            </div>
+
+            <p>בציר 2024 הוא הוכחה שיין ישראלי אינו עוד "בשלב ההתפתחות" — הוא כבר שם. המסע מהכרם אל הבקבוק, בשנה הזאת, היה שמח. וזה מורגש.</p>
+          </div>
+
+          <div class="rule-h" style="margin-top:14px; margin-bottom:9px"></div>
+          <div style="text-align:center; font-size:13px; color:var(--rule)">&#9632;</div>
+
+        </div>
+      </div><!-- /p12 -->
+
+
+      <!-- P13 · FULL-PAGE LUXURY AD (LEFT — עמוד 13) · אריא אולם אירועים -->
+      <div class="page" id="p13"
+           style="position:relative; overflow:hidden; background:#0C0A08; border:none;
+                  display:flex; flex-direction:column">
+
+        <!-- תמונה — ללא חישוך, ללא פילטר, 75% גובה -->
+        <div style="flex:1; overflow:hidden; min-height:0">
+          <img src="img/אולם-חתונות-במרכז-הארץ-אריא-אולם-אירועים-לחתונה-במרכז.jpg"
+               alt="אריא — אולם אירועים יוקרתי"
+               style="width:100%; height:100%; object-fit:cover;
+                      object-position:center 40%; display:block">
+        </div>
+
+        <!-- פאנל טקסט — נקי, יוקרתי, מינימלי -->
+        <div style="flex:0 0 auto; background:#0C0A08;
+                    padding:20px 28px 24px; text-align:center;
+                    border-top:0.5px solid rgba(215,195,155,0.18)">
+
+          <div style="width:32px; height:0.5px;
+                      background:rgba(215,195,155,0.35); margin:0 auto 14px"></div>
+
+          <div style="font-family:var(--f-display); font-weight:700;
+                      font-size:17px; letter-spacing:7px;
+                      color:#EDE0C4; margin-bottom:5px">
+            ARIA
+          </div>
+
+          <div style="font-family:var(--f-display); font-size:7px;
+                      letter-spacing:3.5px; color:rgba(220,200,165,0.68);
+                      margin-bottom:10px">
+            אולם אירועים יוקרתי · מרכז הארץ
+          </div>
+
+          <div style="font-family:'Cormorant Garamond', var(--f-serif);
+                      font-style:italic; font-size:12px; line-height:1.6;
+                      color:rgba(228,210,178,0.75); margin-bottom:12px">
+            "המקום שבו כל רגע הופך לזיכרון"
+          </div>
+
+          <div style="width:20px; height:0.5px;
+                      background:rgba(200,178,135,0.22); margin:0 auto 10px"></div>
+
+          <div style="font-family:var(--f-display); font-size:6.5px;
+                      letter-spacing:2px; color:rgba(175,150,108,0.48)">
+            חתונות · בר-מצוות · ארועי חברה
+          </div>
+
+        </div>
+
+        <!-- תווית פרסומת -->
+        <div style="position:absolute; top:14px; right:0; left:0;
+                    text-align:center;
+                    font-family:var(--f-display); font-size:5.5px;
+                    letter-spacing:3px; color:rgba(190,170,130,0.22);
+                    text-transform:uppercase">
+          פרסומת
+        </div>
+
+      </div><!-- /p13 -->
+
+    </div><!-- /sp6 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 7
+         RIGHT: P14 — יינות הגולן: פרשת ארץ (פתיחה)
+         LEFT:  P15 — יינות הגולן (המשך א׳)
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp7">
+
+      <!-- P14 · ARTICLE OPENING (RIGHT — עמוד 14) -->
+      <div class="page" id="p14">
+        <div class="page-head">
+          <span class="page-folio">14</span>
+          <span class="page-section">יינות ישראל</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:12px">
+
+          <!-- תמונת גיבור -->
+          <div class="img-ph real" style="height:210px; margin-bottom:14px">
+            <img src="img/כוס יין אדום עם רקע.png" alt="יין אדום מהגולן"
+                 style="width:100%; height:100%; object-fit:cover;
+                        object-position:center 30%; display:block">
+          </div>
+
+          <div class="article-kicker">כתבת עומק · יינות ישראל</div>
+          <h1 class="article-title" style="font-size:30px; line-height:1.05;
+                                           margin-bottom:9px">
+            יינות הגולן:<br>פרשת ארץ
+          </h1>
+          <div class="article-deck">
+            האדמה הבזלתית, האוויר הצלול, והגובה
+            שמעל האגם — כך נולד הנס האנולוגי של ישראל
+          </div>
+          <div class="article-byline">מאת אפרים זוהר</div>
+
+          <div class="rule-h"></div>
+
+          <div class="article-body">
+            <p><span class="drop-cap">מ</span>על הכנרת, בגובה 800 עד 1,100 מטר, שוכנת הרצועה הצרה שהפכה לליבתו של עולם היין הישראלי. רמת הגולן — בזלת שחורה, אוויר הרים, טמפרטורות לילה קרירות — הציעה לגפן הישראלית בית שלא ידעה כמותו. מאז 1983, כשיקב רמת הגולן הניח את אבן הפינה, לא פסק הניסוי — ולא פסקו ההצלחות.</p>
+          </div>
+
+        </div>
+      </div><!-- /p14 -->
+
+
+      <!-- P15 · ARTICLE CONT. (LEFT — עמוד 15) -->
+      <div class="page" id="p15">
+        <div class="page-head">
+          <span class="page-folio">15</span>
+          <span class="page-section">יינות ישראל</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:10px">
+
+          <div class="article-body">
+            <p>הקרקע הבזלתית של הגולן היא שונה בתכלית. היא שחורה, מחוספסת, מרוסקת ממאות שנות קרח וגעש. היא שומרת על לחות בחורף ומנקזת מים ביעילות בקיץ. היא מחייבת את הגפן לרדת עמוק — ועמוק פירושו מינרליות. פירושו עומק. פירושו יין שנושא בתוכו סיפור של ארץ.</p>
+
+            <p>הגובה הוא המשתנה הגדול ביותר. בעוד שבעמק הירדן הטמפרטורה בספטמבר עולה על 38 מעלות, על רמת הגולן היא מתמתנת ל-27 ביום ו-14 בלילה. פער זה — של מעל 13 מעלות — הוא ההבדל בין ענב שרוף לאחד שמפתח בשלות הדרגתית, בוני, ומאוזנת.</p>
+
+            <!-- pull quote -->
+            <blockquote class="pull-quote">
+              <q>הגולן לא מייצר יין טוב למרות הטבע —
+               אלא בזכותו, ורק בזכותו.</q>
+              <cite>ד"ר מיכאל שסטובסקי, אנולוג — יקב רמת הגולן</cite>
+            </blockquote>
+
+            <p>היקבים שמוציאים את הטוב ביותר מהאזור מבינים שקברנה סוביניון הוא כאן מלך — בשרני, כהה, עם טאנינים שדורשים זמן אך מגמלים בסבלנות. אחריו, הסוביניון בלאן, שמגיע לכאן לבשלותו האמיתית: עשבוני, הדרי, ובעל חמצה חדה וארוכה. הריזלינג — שריחו כמו מתהלך בין אשכולית לנפט ירוק — מתאים לאקלים ההררי כמו כפפה ליד.</p>
+
+            <p>כיום פועלים ברמת הגולן עשרה יקבים, מהגדול — יקב רמת הגולן עם שלוש ותויות מגוונות — ועד ליקבי בוטיק קטנים כמו "בן-חמו" ו"אבני הגולן", שמפיקים אלפי בקבוקים בלבד ומוכרים ישירות מהיקב. כולם חולקים את אותה שאלה: כמה מהאדמה יכול הבקבוק להכיל?</p>
+          </div>
+
+        </div>
+      </div><!-- /p15 -->
+
+    </div><!-- /sp7 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         SPREAD 8
+         RIGHT: P16 — יינות הגולן (המשך ב׳) — מרתף + כותרות
+         LEFT:  P17 — יינות הגולן (סיום) — עתיד האזור + המלצות
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div class="spread" id="sp8">
+
+      <!-- P16 · ARTICLE CONT. (RIGHT — עמוד 16) -->
+      <div class="page" id="p16">
+        <div class="page-head">
+          <span class="page-folio">16</span>
+          <span class="page-section">יינות ישראל</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:10px">
+
+          <div class="img-ph real" style="height:185px; margin-bottom:13px">
+            <img src="img/מרתף בקבוקי יין בשכיבה למאמר.png"
+                 alt="מרתף הבשלת בקבוקים — יקב בגולן"
+                 style="width:100%; height:100%; object-fit:cover;
+                        object-position:center 72%; display:block">
+          </div>
+          <div class="caption" style="margin-top:-8px; margin-bottom:12px">
+            מרתף ההבשלה ביקב רמת הגולן — אלפי בקבוקים ממתינים לשחרור
+          </div>
+
+          <div class="article-body">
+            <p>יקב רמת הגולן פועל בשלוש ותויות: <strong>ירדן</strong> — ייצור מוגבל, אחסון ממושך, הכרה בינלאומית; <strong>גמלא</strong> — שיא האיזון בין איכות לנגישות; ו<strong>גולן</strong> — בשילה יומיומי עם אופי ברור. ירדן הוא שם הדגל: קברנה סוביניון ירדן 1995 הופיע ברשימות הגדולות של Wine Spectator ושינה את תפיסת ישראל בחו"ל לנצח.</p>
+
+            <p>לצד הענק הגדול, יקבי הבוטיק מספרים סיפור אחר. <strong>פלטר וינרי</strong>, <strong>שאטו גולן</strong>, ו<strong>ענבל</strong> — כולם בחרו בנתיב ההתערבות המינימלית: פחות שמרים מסחריים, פחות מיצוי, יותר ביטוי של הכרם. הבקבוקים שלהם מגיעים בכמויות של אלפים בלבד — ונחטפים.</p>
+
+            <blockquote class="pull-quote">
+              <q>אנחנו לא עושים יין — אנחנו מרשים
+               לכרם לדבר. התפקיד שלנו לא להפריע.</q>
+              <cite>רוני ג׳יימס, יינאי — שאטו גולן</cite>
+            </blockquote>
+
+            <p>האתגר הגדול הוא עקביות. הגולן סובל מגשמי ברד בלתי-צפויים, רוחות חריפות בבציר, ושינויי טמפרטורה קיצוניים בין שנות בציר. לכן, הניסיון של הכורמים — שנצבר על פני ארבעה עשורים — הוא הנכס האמיתי, לא פחות מהאדמה עצמה.</p>
+          </div>
+
+        </div>
+      </div><!-- /p16 -->
+
+
+      <!-- P17 · ARTICLE END (LEFT — עמוד 17) -->
+      <div class="page" id="p17">
+        <div class="page-head">
+          <span class="page-folio">17</span>
+          <span class="page-section">יינות ישראל</span>
+          <span class="page-mag">YAYIN</span>
+        </div>
+        <div class="page-body" style="padding-top:10px">
+
+          <div class="article-body">
+            <p>הגולן מגבש זהות. יינאים צעירים, שלמדו בבורדו ובטוסקנה, חוזרים ומביאים שפה עולמית לאדמה מקומית. הם מרכיבים על כרמים ישנים זנים חדשים, מנסים גזרי אדמה, ממפים את ההבדלים בין חלקה לחלקה. המילה "טרואר" — שפעם נשמעה זרה בפה ישראלי — הפכה לשפת היום-יום של הגולן.</p>
+
+            <p>ההכרה הבינלאומית גדלה בהתמדה. בתחרויות דקנטר, בריסל ולונדון — הגולן מופיע שוב ושוב ברשימות הגמר. ב-2024, ארבעה יינות מהגולן קיבלו ציון 90+ של Wine Spectator, ושניים מהם — 93. זה לא מקרה. זה תוצאה של ארבעים שנה של עבודה.</p>
+
+            <blockquote class="pull-quote">
+              <q>בעוד עשור, הגולן יהיה
+               שם שיאמרו בנשימה אחת עם נאפה ובורגן.</q>
+              <cite>ג׳ורג׳ לוטן, מבקר יין — תל אביב</cite>
+            </blockquote>
+
+            <!-- תיבת המלצות -->
+            <div style="border:0.5px solid var(--rule); padding:11px 13px 10px;
+                        margin:14px 0; background:rgba(94,18,32,0.04)">
+              <div style="font-family:var(--f-display); font-size:8px;
+                          letter-spacing:3px; text-transform:uppercase;
+                          color:var(--wine); margin-bottom:9px; text-align:center">
+                שלושה יינות — הגולן בבקבוק
+              </div>
+              <div style="font-family:var(--f-body); font-size:9.5px;
+                          line-height:1.62; color:var(--ink)">
+                <div style="margin-bottom:5px">
+                  <strong style="font-family:var(--f-display)">ירדן קברנה סוביניון 2021</strong><br>
+                  פירות כהים, ארז, ותבלינים — יין שיחכה בסבלנות לפחות חמש שנים.
+                </div>
+                <div style="border-top:0.5px solid var(--rule); padding-top:5px; margin-bottom:5px">
+                  <strong style="font-family:var(--f-display)">גמלא סוביניון בלאן 2023</strong><br>
+                  הדרי, עשבוני, עם גמר ארוך ורענן — שתייה מושלמת עכשיו.
+                </div>
+                <div style="border-top:0.5px solid var(--rule); padding-top:5px">
+                  <strong style="font-family:var(--f-display)">שאטו גולן סירה 2022</strong><br>
+                  בוטיק בלעדי — זיתים שחורים, עשן ופלפל. ייצור של 1,200 בקבוקים.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-h" style="margin-top:12px; margin-bottom:8px"></div>
+          <div style="text-align:center; font-size:13px; color:var(--rule)">&#9632;</div>
+
+        </div>
+      </div><!-- /p17 -->
+
+    </div><!-- /sp8 -->
+
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         FLIPPER OVERLAY
+         Animated element that covers one page
+         during the 3-D page-turn transition.
+         Filled dynamically by JS; hidden at start.
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <div id="flipper" style="display:none">
+      <div class="flip-face flip-front" id="ff"></div>
+      <div class="flip-face flip-back"  id="fb"></div>
+    </div>
+
+
+  </div><!-- /book -->
+
+
+</div><!-- /stage -->
+
+
+<!-- ═══════════════════════════════════════════════
+     FLIPBOOK ENGINE  (embedded JS)
+     Handles: navigation, 3-D flip animation,
+     keyboard arrows, touch swipe, fullscreen.
+═══════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── state ── */
+  var cur  = 0;
+  /* MAX is derived dynamically — grows as spreads are added to the DOM */
+  var MAX  = document.querySelectorAll('.spread').length - 1;
+  var busy = false;
+
+  /* ── helpers ── */
+  function el(id)     { return document.getElementById(id); }
+  function pageEl(n)  { return (n >= 1 && n <= 64) ? el('p' + n) : null; }
+  function html(n)    { var p = pageEl(n); return p ? p.innerHTML : ''; }
+
+  /* ── show a spread ── */
+  function show(n) {
+    document.querySelectorAll('.spread').forEach(function (s) {
+      s.classList.remove('active');
+    });
+    var sp = el('sp' + n);
+    if (sp) sp.classList.add('active');
+    cur = n;
+    refresh();
+  }
+
+  /* ── update nav bar ── */
+  function refresh() {
+    var r = 2 * cur + 1, l = 2 * cur, txt;
+    if      (cur === 0)    txt = 'שער · עמוד 1';
+    else if (cur === 32)   txt = 'כריכה אחורית · עמוד 64';
+    else                   txt = 'עמודים ' + l + '–' + r + '  ·  64 עמודים';
+    el('pg-info').textContent  = txt;
+    el('btn-prev').disabled    = (cur === 0);
+    el('btn-next').disabled    = (cur === MAX);
+  }
+
+  /* ── page-flip animation ──
+       dir +1 = forward  (right page turns to left)
+       dir -1 = backward (left page turns to right) */
+  function flip(dir) {
+    if (busy)                        return;
+    if (dir > 0 && cur >= MAX)       return;
+    if (dir < 0 && cur <= 0)         return;
+    busy = true;
+
+    var n  = cur,
+        fl = el('flipper'),
+        ff = el('ff'),
+        fb = el('fb');
+
+    if (dir > 0) {
+      /* forward: right page p[2n+1] turns; back reveals p[2n+2] */
+      ff.innerHTML = html(2 * n + 1);
+      fb.innerHTML = html(2 * (n + 1));
+      fl.style.cssText = 'display:block;right:0;left:auto;';
+    } else {
+      /* backward: left page p[2n] turns; back reveals p[2n-1] */
+      ff.innerHTML = html(2 * n);
+      fb.innerHTML = html(2 * (n - 1) + 1);
+      fl.style.cssText = 'display:block;left:0;right:auto;';
+    }
+
+    void fl.offsetHeight;                          /* force reflow */
+    fl.className = (dir > 0) ? 'flip-fwd' : 'flip-bwd';
+
+    fl.addEventListener('animationend', function done() {
+      fl.removeEventListener('animationend', done);
+      show(n + dir);
+      fl.style.cssText = 'display:none';
+      fl.className     = '';
+      busy = false;
+    });
+  }
+
+  /* ── init ── */
+  show(0);
+
+  /* buttons */
+  el('btn-next').addEventListener('click', function () { flip(1);  });
+  el('btn-prev').addEventListener('click', function () { flip(-1); });
+
+  /* keyboard  (RTL: ← = next page, → = prev page) */
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  flip(1);
+    if (e.key === 'ArrowRight') flip(-1);
+    if (e.key === 'Escape')     document.body.classList.remove('fullscreen');
+  });
+
+  /* touch swipe */
+  var tx = 0;
+  el('stage').addEventListener('touchstart', function (e) {
+    tx = e.touches[0].clientX;
+  }, { passive: true });
+  el('stage').addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 55) flip(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  /* click zones (left 22 % = prev, right 22 % = next) */
+  el('book').addEventListener('click', function (e) {
+    if (e.target.closest('#flipper')) return;
+    var bx = this.getBoundingClientRect(), x = e.clientX - bx.left, w = bx.width;
+    if      (x < w * 0.22) flip(-1);
+    else if (x > w * 0.78) flip(1);
+  });
+
+  /* fullscreen */
+  window.toggleFS = function () {
+    document.fullscreenElement
+      ? document.exitFullscreen()
+      : document.documentElement.requestFullscreen();
+  };
+  document.addEventListener('fullscreenchange', function () {
+    document.body.classList.toggle('fullscreen', !!document.fullscreenElement);
+  });
+
+  window.printMag = function () { window.print(); };
+
+  /* public helper: jump to any spread */
+  window.magGoTo = function (n) {
+    if (!busy) show(Math.max(0, Math.min(MAX, n)));
+  };
+
+  /* skip ±10 pages (= ±5 spreads) instantly */
+  window.skipPages = function (pages) {
+    if (!busy) show(Math.max(0, Math.min(MAX, cur + Math.round(pages / 2))));
+  };
+
+  /* ── zoom ── */
+  var userZoom  = 1.0;
+  var ZOOM_STEP = 0.15;
+  var ZOOM_MIN  = 0.4;
+  var ZOOM_MAX  = 2.5;
+
+  function responsiveBase() {
+    var w = window.innerWidth;
+    if (w <= 560)  return 0.40;
+    if (w <= 750)  return 0.55;
+    if (w <= 950)  return 0.72;
+    if (w <= 1120) return 0.86;
+    return 1.0;
+  }
+
+  function applyZoom() {
+    var scale = (responsiveBase() * userZoom).toFixed(3);
+    el('book').style.transform = 'scale(' + scale + ')';
+    el('zoom-val').textContent  = Math.round(userZoom * 100) + '%';
+  }
+
+  window.zoomIn    = function () { userZoom = Math.min(ZOOM_MAX, +(userZoom + ZOOM_STEP).toFixed(2)); applyZoom(); };
+  window.zoomOut   = function () { userZoom = Math.max(ZOOM_MIN, +(userZoom - ZOOM_STEP).toFixed(2)); applyZoom(); };
+  window.zoomReset = function () { userZoom = 1.0; applyZoom(); };
+
+  /* Ctrl + scroll wheel */
+  el('stage').addEventListener('wheel', function (e) {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      if (e.deltaY < 0) window.zoomIn();
+      else              window.zoomOut();
+    }
+  }, { passive: false });
+
+  /* recalc on window resize */
+  window.addEventListener('resize', applyZoom);
+
+  /* initialise */
+  applyZoom();
+
+}());
+</script>
+
+
+<!-- ═══════════════════════════════════════════════
+     BACK-TO-COVER BUTTON  (fixed, elegant)
+═══════════════════════════════════════════════ -->
+<button id="btn-cover"
+        onclick="magGoTo(0)"
+        title="חזרה לשער"
+        style="
+          position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+          z-index:8000;
+          display:flex; align-items:center; gap:7px;
+          padding:7px 18px 7px 14px;
+          background:rgba(18,16,14,0.82);
+          border:0.5px solid rgba(210,192,155,0.28);
+          border-radius:2px;
+          backdrop-filter:blur(6px);
+          cursor:pointer;
+          font-family:'Frank Ruhl Libre', serif;
+          font-size:11px; letter-spacing:2px;
+          color:rgba(232,218,192,0.82);
+          text-shadow:0 1px 4px rgba(0,0,0,0.5);
+          transition:opacity .2s, border-color .2s;
+          opacity:0.72;
+        "
+        onmouseenter="this.style.opacity='1';this.style.borderColor='rgba(210,192,155,0.55)'"
+        onmouseleave="this.style.opacity='0.72';this.style.borderColor='rgba(210,192,155,0.28)'">
+  &#9651;&nbsp; שער
+</button>
+
+
+</body>
+</html>

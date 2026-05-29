@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir \"c:\\\\Users\\\\1\\\\Desktop\\\\קורס יין דיגיטלי\\\\מגזין יין דיגיטלי\")",
+      "Bash(dir \"c:\\\\Users\\\\1\\\\Desktop\\\\קורס יין דיגיטלי\" /B)",
+      "Bash(Get-ChildItem \"c:\\\\Users\\\\1\\\\Desktop\\\\קורס יין דיגיטלי\\\\מגזין יין דיגיטלי\" -Recurse)",
+      "Bash(Select-Object FullName, Length)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\1\\\\Desktop\\\\קורס יין דיגיטלי\\\\מגזין יין דיגיטלי\\\\img\" | Where-Object { $_.Extension -match '\\\\.\\(jpg|jpeg|png\\)' } | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB\\)}} | Sort-Object KB -Descending | Format-Table -AutoSize)",
+      "Bash(dir \"c:\\\\Users\\\\1\\\\Desktop\\\\קורס יין דיגיטלי\\\\מגזין יין דיגיטלי\\\\img\" /b)",
+      "Bash(Sort-Object LastWriteTime -Descending)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\1\\\\Desktop\\\\קורס יין דיגיטלי\\\\מגזין יין דיגיטלי\\\\img\" | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime, @{n='KB';e={[math]::Round\\($_.Length/1KB,0\\)}})",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\1\\\\Desktop\\\\קורס יין דיגיטלי\\\\מגזין יין דיגיטלי\\\\img\" | Where-Object { $_.Name -match \"אמרלד|Terminal|אריא|אולם\" } | Select-Object Name, @{n='KB';e={[math]::Round\\($_.Length/1KB,0\\)}}, LastWriteTime)"
+    ]
+  }
+}
