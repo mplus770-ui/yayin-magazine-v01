@@ -1034,7 +1034,13 @@ body.fullscreen #stage {
     gap: 0;
     row-gap: 5px;
   }
-  #stage { top: 76px; }
+  #stage {
+    top: 84px;
+    height: calc(100vh - 84px);
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+  }
 
   /* brand text — not a button, hide to save space */
   .nav-brand { display: none; }
@@ -1072,8 +1078,8 @@ body.fullscreen #stage {
 
 /* ── MOBILE BOOK (≤480px) ────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  #stage        { overflow: hidden; }
-  #book         { box-shadow: none; }
+  #stage        { padding: 0; overflow: hidden; }
+  #book         { box-shadow: none; max-height: none; }
   #book::before { display: none; }
   .spread:not(.active) { display: none; }
 }
