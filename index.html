@@ -1239,13 +1239,11 @@
 
   function responsiveBase() {
     var w = window.innerWidth;
-    if (w <= 380)  return 0.48;   /* small phones  */
-    if (w <= 480)  return 0.55;   /* phones        */
-    if (w <= 560)  return 0.62;   /* large phones  */
-    if (w <= 750)  return 0.55;   /* tablets       */
-    if (w <= 950)  return 0.72;   /* small laptops */
-    if (w <= 1120) return 0.86;   /* laptops       */
-    return 1.0;                   /* desktop       */
+    if (w <= 560)  return 0.40;
+    if (w <= 750)  return 0.55;
+    if (w <= 950)  return 0.72;
+    if (w <= 1120) return 0.86;
+    return 1.0;
   }
 
   function applyZoom() {

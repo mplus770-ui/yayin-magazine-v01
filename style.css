@@ -1022,44 +1022,57 @@ body.fullscreen #stage {
   #flipper { display: none !important; }
 }
 
-/* ── MOBILE — שורת ניווט כפולה (≤640px) ──────────────────────────────── */
+/* ── MOBILE — שתי שורות ניווט (≤640px) ──────────────────────────────── */
 @media (max-width: 640px) {
 
-  /* Nav: two rows, ALL buttons visible */
   #mag-nav {
     height: auto;
     flex-wrap: wrap;
+    justify-content: center;
     align-content: center;
-    padding: 4px 6px;
-    gap: 3px;
+    padding: 5px 8px;
+    gap: 0;
+    row-gap: 5px;
   }
-  #stage { top: 84px; }             /* extra room for 2-row nav */
+  #stage { top: 76px; }
 
-  .nav-brand { display: none; }     /* brand text hidden — not a button */
+  /* brand text — not a button, hide to save space */
+  .nav-brand { display: none; }
 
-  /* Row 1: page navigation — full width, centered */
+  /* ── שורה 1: ניווט — –10 | הקודם | מידע | הבא | +10 ── */
   .nav-controls {
     order: 1;
     width: 100%;
     justify-content: center;
-    gap: 4px;
+    gap: 5px;
   }
 
-  /* Row 2: zoom + fullscreen + print — all visible */
-  .nav-zoom    { order: 2; gap: 3px; }
-  .nav-actions { order: 2; gap: 3px; }
+  /* ── שורה 2: פעולות — זום– | % | זום+ | מסך מלא | הדפסה ── */
+  .nav-zoom    { order: 2; gap: 4px; }
+  .nav-actions { order: 2; gap: 4px; margin-inline-start: 10px; }
 
-  /* Compact sizing for all buttons */
-  .nav-btn       { font-size: 9px; padding: 3px 6px; letter-spacing: 0.2px; }
-  .nav-zoom-btn  { width: 20px; height: 20px; font-size: 12px; }
-  #zoom-val      { font-size: 9px; min-width: 28px; }
-  .nav-page-info { font-size: 9px; min-width: 58px; letter-spacing: 0.2px; }
-  #btn-cover     { font-size: 9px; padding: 4px 10px; bottom: 10px; }
+  /* גודל אחיד לכל הכפתורים */
+  .nav-btn {
+    font-size: 10px;
+    padding: 0 8px;
+    height: 26px;
+    letter-spacing: 0.3px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .nav-zoom-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+  #zoom-val      { font-size: 10px; min-width: 32px; }
+  .nav-page-info { font-size: 10px; min-width: 64px; letter-spacing: 0.3px; }
+  #btn-cover     { font-size: 10px; padding: 5px 12px; bottom: 12px; }
 }
 
 /* ── MOBILE BOOK (≤480px) ────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  #stage        { padding-top: 14px; overflow-x: hidden; overflow-y: hidden; }
+  #stage        { overflow: hidden; }
   #book         { box-shadow: none; }
   #book::before { display: none; }
   .spread:not(.active) { display: none; }
