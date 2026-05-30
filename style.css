@@ -1100,8 +1100,8 @@ body.fullscreen #stage {
   .spread:not(.active) { display: none; }
 }
 @media (max-width: 640px) {
-  #book-wrapper {
-    direction: ltr;
-  }
+  #book-wrapper { direction: ltr; }
+  #book         { direction: rtl; }
 }
+
 
