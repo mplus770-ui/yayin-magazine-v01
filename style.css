@@ -1104,4 +1104,25 @@ body.fullscreen #stage {
   #book         { direction: rtl; }
 }
 
+/* ── MOBILE SINGLE-PAGE MODE (≤640px) ───────────────────────────────── */
+@media (max-width: 640px) {
+
+  /* עמוד בודד — 490px במקום 980px */
+  #book {
+    width: var(--page-w) !important;
+    direction: rtl !important;
+  }
+
+  /* ביטול grid דו-עמודי */
+  .spread {
+    display: block !important;
+    position: relative !important;
+  }
+
+  /* הסתרת העמוד השמאלי (child 2) */
+  .spread > :nth-child(2) {
+    display: none !important;
+  }
+}
+
 

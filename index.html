@@ -1148,9 +1148,13 @@
         fb = el('fb');
 
     if (dir > 0) {
-      /* forward: right page p[2n+1] turns; back reveals p[2n+2] */
+      /* forward: right page p[2n+1] turns */
       ff.innerHTML = html(2 * n + 1);
-      fb.innerHTML = html(2 * (n + 1));
+      if (window.innerWidth <= 640) {
+        fb.innerHTML = html(2 * (n + 1) + 1); /* mobile — next right page */
+      } else {
+        fb.innerHTML = html(2 * (n + 1));     /* desktop — left page of next spread */
+      }
       fl.style.cssText = 'display:block;right:0;left:auto;';
     } else {
       /* backward: left page p[2n] turns; back reveals p[2n-1] */
