@@ -59,8 +59,9 @@
 
 
   <!-- ═══════════════════════════════════════════
-       BOOK  (two-page spread container)
+       BOOK WRAPPER + BOOK  (two-page spread container)
   ═══════════════════════════════════════════ -->
+  <div id="book-wrapper">
   <div id="book">
 
 
@@ -1084,6 +1085,7 @@
 
 
   </div><!-- /book -->
+  </div><!-- /book-wrapper -->
 
 
 </div><!-- /stage -->
@@ -1251,12 +1253,7 @@
   function applyZoom() {
     var scale = (responsiveBase() * userZoom).toFixed(3);
     el('book').style.setProperty('--scale', scale);
-   if (window.innerWidth <= 640) {
-    el('book').style.left = "50%";
-    el('book').style.transform = 'translateX(-50%) scale(' + scale + ')';
-} else {
     el('book').style.transform = 'scale(' + scale + ')';
-}
     el('zoom-val').textContent  = Math.round(userZoom * 100) + '%';
   }
 
