@@ -1035,6 +1035,7 @@ body.fullscreen #stage {
     row-gap: 5px;
   }
   #stage {
+    width: 100%;
     top: 84px;
     height: calc(100vh - 84px);
     display: flex;
@@ -1044,9 +1045,10 @@ body.fullscreen #stage {
     overflow: hidden;
   }
   #book {
+    width: calc(var(--page-w) * 2);
+    max-width: none;
     margin: 0 auto;
-    left: 0;
-    right: 0;
+    transform-origin: top center;
   }
 
   /* brand text — not a button, hide to save space */
@@ -1085,8 +1087,8 @@ body.fullscreen #stage {
 
 /* ── MOBILE BOOK (≤480px) ────────────────────────────────────────────── */
 @media (max-width: 480px) {
-  #stage        { padding: 0; overflow: hidden; justify-content: center; align-items: center; }
-  #book         { box-shadow: none; max-height: none; margin: 0 auto; }
+  #stage        { width: 100%; padding: 0; overflow: hidden; justify-content: center; align-items: center; }
+  #book         { width: calc(var(--page-w) * 2); max-width: none; max-height: none; box-shadow: none; margin: 0 auto; transform-origin: top center; }
   #book::before { display: none; }
   .spread:not(.active) { display: none; }
 }
