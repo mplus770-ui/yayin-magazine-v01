@@ -1099,3 +1099,9 @@ body.fullscreen #stage {
   #book::before { display: none; }
   .spread:not(.active) { display: none; }
 }
+@media (max-width: 640px) {
+  #book-wrapper {
+    direction: ltr;
+  }
+}
+
