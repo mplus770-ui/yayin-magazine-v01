@@ -1250,6 +1250,7 @@
 
   function applyZoom() {
     var scale = (responsiveBase() * userZoom).toFixed(3);
+    el('book').style.setProperty('--scale', scale);
     el('book').style.transform = 'scale(' + scale + ')';
     el('zoom-val').textContent  = Math.round(userZoom * 100) + '%';
   }

@@ -1045,10 +1045,13 @@ body.fullscreen #stage {
     overflow: hidden;
   }
   #book {
+    position: relative !important;
+    left: 50% !important;
     width: calc(var(--page-w) * 2);
     max-width: none;
-    margin: 0 auto;
-    transform-origin: top center;
+    margin: 0 auto !important;
+    transform-origin: top center !important;
+    transform: translateX(-50%) scale(var(--scale)) !important;
   }
 
   /* brand text — not a button, hide to save space */
