@@ -125,14 +125,10 @@ body {
 
 /* ── Stage ──────────────────────────────────────────────────────────── */
 #stage {
-  position: fixed;
-  top: 50px;
-  left: 0; right: 0; bottom: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: #1A1A18;
-  overflow: auto;
+  align-items: flex-start;
+  width: 100%;
 }
 
 /* ── Zoom controls ──────────────────────────────────────────────────── */
@@ -185,8 +181,11 @@ body {
     0 30px 80px rgba(0,0,0,0.7),
     0 5px 20px rgba(0,0,0,0.5),
     inset 0 0 0 1px rgba(255,255,255,0.03);
-  transform-origin: center center;
+  transform-origin: top center;
+  transform: scale(var(--scale));
   transition: transform 0.3s ease;
+  margin: 0 auto;
+  direction: ltr;
 }
 
 /* Scale for different viewports */
@@ -1059,9 +1058,7 @@ body.fullscreen #stage {
     overflow: hidden;
   }
   #book {
-    margin: 0 auto !important;
-    transform-origin: top center !important;
-    transform: scale(var(--scale)) !important;
+    direction: rtl;
   }
 
   /* brand text — not a button, hide to save space */
@@ -1101,7 +1098,7 @@ body.fullscreen #stage {
 /* ── MOBILE BOOK (≤480px) ────────────────────────────────────────────── */
 @media (max-width: 480px) {
   #stage        { width: 100%; padding: 0; overflow: hidden; justify-content: center; align-items: center; }
-  #book         { width: calc(var(--page-w) * 2); max-width: none; max-height: none; box-shadow: none; margin: 0 auto; transform-origin: top center; }
+  #book         { width: var(--page-w); }
   #book::before { display: none; }
   .spread:not(.active) { display: none; }
 }
@@ -1111,7 +1108,6 @@ body.fullscreen #stage {
   /* עמוד בודד — 490px במקום 980px */
   #book {
     width: var(--page-w) !important;
-    direction: rtl !important;
   }
 
   /* ביטול grid דו-עמודי */
