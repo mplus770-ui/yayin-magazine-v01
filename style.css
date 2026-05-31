@@ -1030,7 +1030,7 @@ body.fullscreen #stage {
 }
 
 /* ── MOBILE — שתי שורות ניווט (≤640px) ──────────────────────────────── */
-@media (max-width: 640px) {
+@media (max-device-width: 640px) {
 
   #book-wrapper {
     display: flex !important;
@@ -1096,28 +1096,20 @@ body.fullscreen #stage {
 }
 
 /* ── MOBILE BOOK (≤480px) ────────────────────────────────────────────── */
-@media (max-width: 480px) {
+@media (max-device-width: 480px) {
   #stage        { width: 100%; padding: 0; overflow: hidden; justify-content: center; align-items: center; }
   #book         { width: var(--page-w); }
   #book::before { display: none; }
   .spread:not(.active) { display: none; }
+  .spread { display: block !important; }
+  .spread > :nth-child(2) { display: none !important; }
 }
 /* ── MOBILE SINGLE-PAGE MODE (≤640px) ───────────────────────────────── */
-@media (max-width: 640px) {
+@media (max-device-width: 640px) {
 
   /* עמוד בודד — 490px במקום 980px */
   #book {
     width: var(--page-w) !important;
-  }
-
-  /* ביטול grid דו-עמודי */
-  .spread {
-    display: block !important;
-  }
-
-  /* הסתרת העמוד השמאלי (child 2) */
-  .spread > :nth-child(2) {
-    display: none !important;
   }
 }
 
