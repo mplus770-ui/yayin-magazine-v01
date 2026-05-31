@@ -1033,6 +1033,12 @@ body.fullscreen #stage {
 /* ── MOBILE — שתי שורות ניווט (≤640px) ──────────────────────────────── */
 @media (max-width: 640px) {
 
+  #book-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    direction: ltr !important;
+  }
+
   #mag-nav {
     height: auto;
     flex-wrap: wrap;
@@ -1099,15 +1105,6 @@ body.fullscreen #stage {
   #book::before { display: none; }
   .spread:not(.active) { display: none; }
 }
-@media (max-width: 640px) {
-  #book-wrapper {
-    display: flex !important;
-    justify-content: center !important;
-    direction: ltr !important;
-  }
-  #book         { direction: rtl; }
-}
-
 /* ── MOBILE SINGLE-PAGE MODE (≤640px) ───────────────────────────────── */
 @media (max-width: 640px) {
 
