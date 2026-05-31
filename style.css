@@ -1116,7 +1116,6 @@ body.fullscreen #stage {
   /* ביטול grid דו-עמודי */
   .spread {
     display: block !important;
-    position: relative !important;
   }
 
   /* הסתרת העמוד השמאלי (child 2) */

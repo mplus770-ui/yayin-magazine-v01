@@ -1157,9 +1157,13 @@
       }
       fl.style.cssText = 'display:block;right:0;left:auto;';
     } else {
-      /* backward: left page p[2n] turns; back reveals p[2n-1] */
-      ff.innerHTML = html(2 * n);
-      fb.innerHTML = html(2 * (n - 1) + 1);
+      /* backward */
+      if (window.innerWidth <= 640) {
+        ff.innerHTML = html(2 * n + 1);       /* mobile — current right page */
+      } else {
+        ff.innerHTML = html(2 * n);            /* desktop — current left page */
+      }
+      fb.innerHTML = html(2 * (n - 1) + 1);   /* back reveals prev right page */
       fl.style.cssText = 'display:block;left:0;right:auto;';
     }
 
